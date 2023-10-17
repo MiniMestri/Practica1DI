@@ -142,13 +142,10 @@ public class Conversor extends javax.swing.JFrame {
         jTextField1.setText("");
         jLabel5.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
-    private float ValorMoneda() {
+    private float ValorEuro() {
         String combo2 = String.valueOf(jComboBox2.getSelectedItem());
-        float num = 0;
+        float num = 1;
         switch (combo2) {
-            case "Euro":
-                num = 1;
-                break;
             case "Dolar":
                 num = 1.05f;
                 break;
@@ -156,15 +153,80 @@ public class Conversor extends javax.swing.JFrame {
                 num = 0.87f;
                 break;
             case "Peso":
+                num = 18.96f;
+                break;
+        }
+
+        return num;
+    }
+
+    private float ValorDolar() {
+        String combo2 = String.valueOf(jComboBox2.getSelectedItem());
+        float num = 1;
+        switch (combo2) {
+            case "Euro":
+                num = 0.95f;
+                break;
+            case "Libra":
+                num = 0.82f;
+                break;
+            case "Peso":
+                num = 17.92f;
+                break;
+        }
+        return num;
+    }
+
+    private float ValorPeso() {
+        String combo2 = String.valueOf(jComboBox2.getSelectedItem());
+        float num = 1;
+        switch (combo2) {
+            case "Dolar":
+                num = 0.056f;
+                break;
+            case "Libra":
+                num = 0.046f;
+                break;
+            case "Euro":
                 num = 0.053f;
                 break;
         }
 
         return num;
     }
-    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
 
-        jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorMoneda()));
+    private float ValorLibra() {
+        String combo2 = String.valueOf(jComboBox2.getSelectedItem());
+        float num = 1;
+        switch (combo2) {
+            case "Dolar":
+                num = 1.22f;
+                break;
+            case "Euro":
+                num = 1.15f;
+                break;
+            case "Peso":
+                num = 21.86f;
+                break;
+        }
+        return num;
+    }
+    private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
+        String combo1 = String.valueOf(jComboBox1.getSelectedItem());
+        switch (combo1) {
+            case "Euro":
+                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorEuro()));
+                break;
+            case "Dolar":
+                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorDolar()));
+                break;
+            case "Libra":
+                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorLibra()));
+                break;
+            case "Peso":
+                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorPeso()));
+                break;
+        }
 
     }//GEN-LAST:event_jTextField1KeyReleased
 
