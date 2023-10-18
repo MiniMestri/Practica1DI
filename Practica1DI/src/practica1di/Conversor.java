@@ -213,6 +213,7 @@ public class Conversor extends javax.swing.JFrame {
     }
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         String combo1 = String.valueOf(jComboBox1.getSelectedItem());
+        try{
         switch (combo1) {
             case "Euro":
                 jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorEuro()));
@@ -227,6 +228,9 @@ public class Conversor extends javax.swing.JFrame {
                 jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorPeso()));
                 break;
         }
+        }catch(NumberFormatException e){
+                System.out.println("Formato erroneo, escribe una cifra");
+                }
 
     }//GEN-LAST:event_jTextField1KeyReleased
 
