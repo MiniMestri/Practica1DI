@@ -138,10 +138,22 @@ public class Conversor extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
 
+    /**
+     * Método para que el jButton3 realice su funcionalidad de borrar los
+     * valores en los elemento jTextField1 y jLabel5, que son los encargados de
+     * recoger el valor del usuario y mostrar el valor por pantalla
+     *
+     * @param evt
+     */
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         jTextField1.setText("");
         jLabel5.setText("");
     }//GEN-LAST:event_jButton3ActionPerformed
+    /**
+     * Método para guardar los valores de las monedas respecto al euro
+     *
+     * @return Retorna el valor de la moneda respecto al euro
+     */
     private float ValorEuro() {
         String combo2 = String.valueOf(jComboBox2.getSelectedItem());
         float num = 1;
@@ -160,6 +172,11 @@ public class Conversor extends javax.swing.JFrame {
         return num;
     }
 
+    /**
+     * Método para guardar los valores de las monedas respecto al dolar
+     *
+     * @return Retorna el valor de la moneda respecto al dolar
+     */
     private float ValorDolar() {
         String combo2 = String.valueOf(jComboBox2.getSelectedItem());
         float num = 1;
@@ -177,6 +194,11 @@ public class Conversor extends javax.swing.JFrame {
         return num;
     }
 
+    /**
+     * Método para guardar los valores de las monedas respecto al peso
+     *
+     * @return Retorna el valor de la moneda respecto al peso
+     */
     private float ValorPeso() {
         String combo2 = String.valueOf(jComboBox2.getSelectedItem());
         float num = 1;
@@ -195,6 +217,11 @@ public class Conversor extends javax.swing.JFrame {
         return num;
     }
 
+    /**
+     * Método para guardar los valores de las monedas respecto a la libra
+     *
+     * @return Retorna el valor de la moneda respecto a la libra
+     */
     private float ValorLibra() {
         String combo2 = String.valueOf(jComboBox2.getSelectedItem());
         float num = 1;
@@ -211,26 +238,33 @@ public class Conversor extends javax.swing.JFrame {
         }
         return num;
     }
+
+    /**
+     * Método en el que se elige el tipo de moneda en el jComboBox1 y saca por
+     * pantalla el valor del cambio de una moneda a otra en el jLabel5
+     *
+     * @param evt
+     */
     private void jTextField1KeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_jTextField1KeyReleased
         String combo1 = String.valueOf(jComboBox1.getSelectedItem());
-        try{
-        switch (combo1) {
-            case "Euro":
-                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorEuro()));
-                break;
-            case "Dolar":
-                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorDolar()));
-                break;
-            case "Libra":
-                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorLibra()));
-                break;
-            case "Peso":
-                jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorPeso()));
-                break;
+        try {
+            switch (combo1) {
+                case "Euro":
+                    jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorEuro()));
+                    break;
+                case "Dolar":
+                    jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorDolar()));
+                    break;
+                case "Libra":
+                    jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorLibra()));
+                    break;
+                case "Peso":
+                    jLabel5.setText(String.valueOf(Float.parseFloat(jTextField1.getText()) * ValorPeso()));
+                    break;
+            }
+        } catch (NumberFormatException e) {
+            System.out.println("Formato erroneo, escribe una cifra");
         }
-        }catch(NumberFormatException e){
-                System.out.println("Formato erroneo, escribe una cifra");
-                }
 
     }//GEN-LAST:event_jTextField1KeyReleased
 
